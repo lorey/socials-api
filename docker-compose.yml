@@ -5,7 +5,7 @@ services:
     build: .
     volumes:
       - .:/code/
-    command: bash
+    command: /code/manage.py runserver 0:8000
     tty: True
     ports:
       - "8016:8000"
