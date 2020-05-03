@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class SocialsApiApiConfig(AppConfig):
-    name = 'socials_api_api'
+    name = "socials_api_api"

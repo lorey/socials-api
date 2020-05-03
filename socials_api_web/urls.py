@@ -6,5 +6,5 @@ app_name = "socials_api_web"
 
 urlpatterns = [
     path("", views.index, name="home"),
-    path("test", views.index, name='test')
+    path("test", views.index, name="test"),
 ]
