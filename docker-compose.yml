@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/code/
+    command: bash
+    tty: True
+    ports:
+      - "8016:8000"
