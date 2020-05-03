@@ -7,11 +7,30 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 10%;
+        }
 
+        main {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+    </style>
     <title>{% block title %}socials API{% endblock %}</title>
   </head>
   <body>
-    {% block content %}{% endblock content %}
+    <div class="container">
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+
+    </div>
+
+    <div class="footer small mt-5 text-center">
+        Created with a passion for data by <a href="https://karllorey.com" target="_blank">Karl Lorey</a>.
+        Code is on <a href="https://github.com/lorey" target="_blank">GitHub</a>.
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

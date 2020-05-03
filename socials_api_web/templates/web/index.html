@@ -1,5 +1,30 @@
 {% extends "./_base.html" %}
 
 {% block content %}
-    <h1>socials API</h1>
+    <h1>Socials API</h1>
+    <p class="lead">API to extract social media profiles from websites.</p>
+    <p>This API allows you to extract links to social media profiles from any website.</p>
+    <p>Currently supported platforms:</p>
+    <ul>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Linkedin</li>
+        <li>Github</li>
+        <li>Email</li>
+    </ul>
+
+    <p>You pass the URL, we extract all social media profiles for you!</p>
+
+    <a class="btn btn-primary" href="{% url 'socials_api_api:root' %}">
+        Explore the documentation
+    </a>
+
+    <h2 class="mt-5">It's Open Source</h2>
+    <p>
+        This API is based on an open source Python library
+        called <a href="https://github.com/lorey/socials" target="_blank">socials</a>
+        and is Open Source itself.
+        So if you want to have no request overhead, no rate limits, or modify something, just install the package.
+        Or if you're on a different stack, you can still install the API locally with docker within 60s.
+    </p>
 {% endblock %}
