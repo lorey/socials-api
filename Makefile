@@ -1,5 +1,5 @@
 .RECIPEPREFIX = >
-.PHONY: build chown
+.PHONY: build chown black
 .FORCE:
 
 build:
@@ -10,3 +10,6 @@ requirements.txt: .FORCE
 
 chown:
 > sudo chown -R $$USER ./
+
+black:
+> docker-compose exec web black . -l 100
