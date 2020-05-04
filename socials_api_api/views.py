@@ -1,21 +1,23 @@
 import requests
 import socials
-
-# Create your views here.
 from bs4 import BeautifulSoup
 from rest_framework.decorators import api_view
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
+import socials_api_api
+
 
 @api_view(["GET"])
 def api_root(request, format=None):
-    return Response(
-        {
-            "fetch-url": reverse("socials_api_api:fetch-url", request=request, format=format),
-        }
-    )
+    response_data = {
+        "endpoints": {
+            "fetch-url": reverse("socials_api_api:fetch-url", request=request, format=format)
+        },
+        "versions": {"api": socials_api_api.__version__, "socials": socials.__version__},
+    }
+    return Response(response_data)
 
 
 @api_view(["POST"])
