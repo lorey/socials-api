@@ -14,10 +14,6 @@ def api_root(request, format=None):
     return Response(
         {
             "fetch-url": reverse("socials_api_api:fetch-url", request=request, format=format),
-            "filter-url-list": reverse(
-                "socials_api_api:filter-url-list", request=request, format=format
-            ),
-            "filter-url": reverse("socials_api_api:filter-url", request=request, format=format),
         }
     )
 
@@ -39,17 +35,6 @@ def fetch_url(request):
     soup = BeautifulSoup(response.content, "lxml")
     hrefs = [a.get("href") for a in soup.find_all("a", attrs={"href": True})]
     return make_extraction_response(socials.extract(hrefs))
-
-
-@api_view(["POST"])
-def filter_url_list(request):
-    raise NotImplementedError()
-
-
-@api_view(["POST"])
-def filter_url(request):
-    url = request.POST.get("url")
-    return make_extraction_response(socials.extract([url]))
 
 
 def make_extraction_response(extraction):
