@@ -1,5 +1,5 @@
 .RECIPEPREFIX = >
-.PHONY: build chown black
+.PHONY: build chown black isort
 .FORCE:
 
 build:
@@ -14,4 +14,7 @@ chown:
 black:
 > docker-compose exec web black . -l 100
 
-precommit: chown black requirements.txt
+isort:
+> docker-compose exec web isort -rc .
+
+precommit: chown isort black requirements.txt
