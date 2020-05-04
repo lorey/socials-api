@@ -13,3 +13,5 @@ chown:
 
 black:
 > docker-compose exec web black . -l 100
+
+precommit: chown black requirements.txt
