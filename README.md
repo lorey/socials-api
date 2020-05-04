@@ -29,7 +29,10 @@ Requesting `/api/fetch-url` with a POST request and `url=https://karllorey.com` 
 2. Select for `Media type`: `application/x-www-form-urlencoded`
 3. Enter in `Content`: `url=https://karllorey.com` or any other url
 
+![Screenshot of socials API's browsable API](.github/socials-api-screenshot.png)
+
 ## Set it up for yourself
+socials API is dockerized and can be set up via docker-compose within seconds:
 ```bash
 docker-compose build
 docker-compose up -d
