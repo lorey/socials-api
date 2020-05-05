@@ -41,7 +41,8 @@ docker-compose build
 docker-compose up -f docker-compose.yml -f docker-compose.prod.yml -d
 ```
 
-It should now be accessible at http://localhost:8016.
+It should now be accessible at port 80.
+The development version you get with `docker-compose up` is at port 8016.
 Make sure to adapt the [rate limit in `socials_api/settings.py`](socials_api/settings.py).
 
 I have personal ansible and terraform files for deployment via docker-compose on AWS.
