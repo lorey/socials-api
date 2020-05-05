@@ -2,5 +2,7 @@ version: "3"
 
 services:
   web:
+    # todo gunicorn
+  static:
     ports:
-      - "80:8000"
+      - "80:80"
