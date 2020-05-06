@@ -1,0 +1,39 @@
+{% extends "./_base.html" %}
+
+{% block title %}Extract social media profiles from any URL{% endblock %}
+
+{% block content %}
+    <h1>Extract social media profiles</h1>
+    <p>Extract all social media profiles from any given URL, for free.</p>
+    <p>Insert a link, receive all Facebook, Twitter, GitHub, and LinkedIn links as well as emails.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="url" class="form-control" name="url" placeholder="http://your-url.com/" value="{{ url }}">
+        <button type="submit" class="btn btn-primary mt-1">Extract social media profiles</button>
+    </form>
+
+    {% if response_data %}
+        <h2 class="mt-5">Links per Platform</h2>
+        {% if response_data.matches_per_platform %}
+            {% for platform, items in response_data.matches_per_platform.items %}
+                {% if items %}
+                    <p class="mb-0"><strong>{{ platform|capfirst }}</strong> links</p>
+                    <ul>
+                    {% for item in items %}
+                        <li><a href="{{ item }}" target="_blank">{{ item }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info">
+                <strong>API returned an error</strong><br>{{ response_data.detail }}
+            </div>
+        {% endif %}
+
+        <h2 class="mt-5">API Preview</h2>
+        <p>This is the response the API would return:</p>
+        <pre>{{ response_str }}</pre>
+    {% endif %}
+{% endblock %}
