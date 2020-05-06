@@ -32,15 +32,15 @@ ALLOWED_HOSTS = ["socials.karllorey.com", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    "socials_api_api",
+    "socials_api_web",
+    "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
-    "socials_api_api",
-    "socials_api_web",
 ]
 
 MIDDLEWARE = [

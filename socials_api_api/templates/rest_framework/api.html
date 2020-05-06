@@ -1,0 +1,14 @@
+{% extends "rest_framework/base.html" %}
+
+{% block title %}Browsable API | Socials API{% endblock %}
+
+{% block branding %}
+  <a class='navbar-brand' href="{% url 'socials_api_web:home' %}">
+    Socials API
+  </a>
+{% endblock %}
+
+{% block bootstrap_theme %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "rest_framework/css/bootstrap.min.css" %}"/>
+{% endblock %}
