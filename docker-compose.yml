@@ -2,6 +2,7 @@ version: '3'
 
 services:
   web:
+    restart: always
     build: .
     command: /code/manage.py runserver 0:8000
     tty: True
