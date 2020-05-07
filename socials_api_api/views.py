@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 import socials_api_api
+from socials_api import settings
 
 
 @api_view(["GET"])
@@ -17,6 +18,13 @@ def api_root(request, format=None):
         },
         "versions": {"api": socials_api_api.__version__, "socials": socials.__version__},
     }
+
+    if settings.DEBUG:
+        response_data["debug"] = {
+            "headers": request.headers,
+            "meta": request.META.get("REMOTE_ADDR"),
+        }
+
     return Response(response_data)
 
 
@@ -24,7 +32,7 @@ def api_root(request, format=None):
 def fetch_url(request):
     url = request.POST.get("url")
     if not url:
-        raise APIException("Parameter url must be non-empty")
+        raise APIException(f"Parameter url must be non-empty: {request.POST}")
 
     try:
         response = requests.get(url, headers={"user-agent": "socials-api"})
