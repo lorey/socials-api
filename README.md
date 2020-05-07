@@ -8,7 +8,13 @@ Try it at [socials.karllorey.com](http://socials.karllorey.com).
 Requesting `http://socials.karllorey.com/api/fetch-url` 
 with a POST request and `url=https://karllorey.com` as parameter 
 will return all social media profiles 
-linked from [karllorey.com](https://karllorey.com) (my personal website):
+linked from [karllorey.com](https://karllorey.com) (my personal website).
+For example, with cURL:
+```bash
+curl --data "url=https://karllorey.com" http:/socials.karllorey.com/api/fetch-url
+```
+
+Response:
 
 ```json
 {
@@ -27,12 +33,18 @@ linked from [karllorey.com](https://karllorey.com) (my personal website):
 }
 ```
 
-## Test it (with the provided web interface)
+## Test it (on the website)
+There's a page, [socials.karllorey.com/try](http://socials.karllorey.com/try), 
+where you can preview the functionality.
+
+## Test it (with the browsable API)
+Django REST Framework offers a browsable API where you can test all functionality in the browser.
+
 1. Go to [socials.karllorey.com/api/fetch-url](http://socials.karllorey.com/api/fetch-url)
 2. Select for `Media type`: `application/x-www-form-urlencoded`
 3. Enter in `Content`: `url=https://karllorey.com` or any other url
 
-![Screenshot of socials API's browsable API](.github/socials-api-screenshot.png)
+![Screenshot of socials API's browsable API](.github/socials-browsable-api.png)
 
 ## Set it up for yourself
 socials API is dockerized and can be set up via docker-compose within seconds:
