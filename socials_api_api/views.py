@@ -8,6 +8,7 @@ from rest_framework.reverse import reverse
 
 import socials_api_api
 from socials_api import settings
+from socials_api_api import get_rate_limit_anon
 
 
 @api_view(["GET"])
@@ -17,6 +18,7 @@ def api_root(request, format=None):
             "fetch-url": reverse("socials_api_api:fetch-url", request=request, format=format)
         },
         "versions": {"api": socials_api_api.__version__, "socials": socials.__version__},
+        "rate_limit": get_rate_limit_anon(),
     }
 
     if settings.DEBUG:

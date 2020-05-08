@@ -2,11 +2,12 @@ import json
 
 from django.shortcuts import render
 
+from socials_api_api import get_rate_limit_anon
 from socials_api_api.views import fetch_url
 
 
 def index(request):
-    return render(request, "web/index.html")
+    return render(request, "web/index.html", {"rate_limit": get_rate_limit_anon()})
 
 
 def try_it(request):
@@ -24,6 +25,7 @@ def try_it(request):
         }
     else:
         context = {"response_str": None, "response_data": None, "url": url}
+
     return render(request, "web/try.html", context)
 
 
