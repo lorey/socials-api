@@ -10,7 +10,7 @@ Django==3.0.7
 djangorestframework==3.11.0
 idna==2.9
 isort==4.3.21
-lxml==4.5.0
+lxml==4.6.2
 pathspec==0.8.0
 pytz==2020.1
 regex==2020.4.4
